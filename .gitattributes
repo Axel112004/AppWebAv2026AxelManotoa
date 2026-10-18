@@ -1,0 +1,21 @@
+# -----------------------------------------------------------------------------
+# PoliMusic | Normalizacion de finales de linea
+# -----------------------------------------------------------------------------
+# Los archivos .asp se guardan SIEMPRE con CRLF, porque ASP clasico en Windows
+# espera ese formato. Asi el proyecto funciona igual al clonarlo en otro equipo,
+# sin importar la configuracion de core.autocrlf de cada quien.
+# -----------------------------------------------------------------------------
+
+*.asp       text eol=crlf
+*.config    text eol=crlf
+*.bat       text eol=crlf
+*.sql       text eol=crlf
+
+*.css       text eol=lf
+*.js        text eol=lf
+*.md        text eol=lf
+
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.mp3       binary

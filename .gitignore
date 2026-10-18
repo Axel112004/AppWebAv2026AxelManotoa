@@ -1,0 +1,17 @@
+# -----------------------------------------------------------------------------
+# PoliMusic | Archivos que NO deben subirse al repositorio
+# -----------------------------------------------------------------------------
+
+# Carpeta interna del asistente (memoria, configuracion local)
+.workbuddy-ai/
+
+# Archivos temporales de Office
+~$*
+
+# Registros y temporales
+*.log
+*.tmp
+
+# Configuracion local del IDE
+.vs/
+*.user
