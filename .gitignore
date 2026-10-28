@@ -15,3 +15,12 @@
 # Configuracion local del IDE
 .vs/
 *.user
+*.suo
+
+# Compilados del proyecto ASP.NET (WebAppPoliMusicV2)
+bin/
+obj/
+packages/
+*.dll
+*.pdb
+*.cache
