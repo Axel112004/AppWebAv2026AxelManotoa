@@ -181,6 +181,14 @@ body.pm-auth {
 .pm-alert--ok { background: #ECFDF3; color: var(--pm-ok); border-color: #C9F0DA; }
 .pm-alert:empty { display: none; }
 
+.pm-auth__credit {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--pm-muted);
+  letter-spacing: .03em;
+}
+
 /* ---------------------------------------------------------------------------
    Shell de la aplicacion (Song.aspx)
    ------------------------------------------------------------------------ */
@@ -226,6 +234,14 @@ body.pm-auth {
 }
 .pm-sidebar__name { font-size: 13.5px; font-weight: 600; color: #fff; line-height: 1.2; }
 .pm-sidebar__role { font-size: 11.5px; color: #93A9E6; }
+.pm-sidebar__credit {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, .07);
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: #7F97D8;
+}
 
 .pm-topbar {
   position: sticky; top: 0; z-index: 30;

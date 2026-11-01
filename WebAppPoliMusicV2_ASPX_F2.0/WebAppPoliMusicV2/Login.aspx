@@ -38,6 +38,8 @@
                 <span>New to PoliMusic?</span>
                 <asp:LinkButton ID="LinkButtonNewUser" runat="server" CssClass="pm-btn pm-btn--ghost pm-btn--sm" OnClick="LinkButtonNewUser_Click">Enroll new user</asp:LinkButton>
             </div>
+
+            <p class="pm-auth__credit">Axel Manotoa &middot; ISWD823</p>
         </div>
     </form>
 </body>

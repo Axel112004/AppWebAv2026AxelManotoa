@@ -2,7 +2,6 @@ using System;
 using System.Configuration;
 using System.Globalization;
 using System.Text.RegularExpressions;
-using System.Web.UI.WebControls;
 
 namespace WebAppPoliMusicV2
 {
@@ -16,9 +15,9 @@ namespace WebAppPoliMusicV2
         protected void btnSumbit_Click(object sender, EventArgs e)
         {
             string messageValidations = string.Empty;
-            string userName = txtUserName.Text.Trim();
+            string userName = txtUserName.Text;
             string password = txtPassword.Text;
-            string email = txtEmail.Text.Trim();
+            string email = txtEmail.Text;
             string birthday = string.Empty;
             if (txtBirthDate.Text != string.Empty)
             {
@@ -50,11 +49,6 @@ namespace WebAppPoliMusicV2
             if (messageValidations != string.Empty)
             {
                 lblMessage.Text = messageValidations;
-                return;
-            }
-            if (password != txtConfirmPassword.Text)
-            {
-                lblMessage.Text = "Password and confirmation do not match!";
                 return;
             }
             messageValidations = new BLL.User(strConnString).ValidationsDuplicated(user);
@@ -110,6 +104,18 @@ namespace WebAppPoliMusicV2
             {
                 // Normalize the domain
                 email = Regex.Replace(email, @"(@)(.+)$", DomainMapper, RegexOptions.None);
+
+                // Examines the domain part of the email and normalizes it.
+                string DomainMapper(Match match)
+                {
+                    // Use IdnMapping class to convert Unicode domain names.
+                    var idn = new IdnMapping();
+
+                    // Pull out and process domain name (throws ArgumentException on invalid)
+                    string domainName = idn.GetAscii(match.Groups[2].Value);
+
+                    return match.Groups[1].Value + domainName;
+                }
             }
             catch (Exception)
             {
@@ -125,19 +131,6 @@ namespace WebAppPoliMusicV2
             {
                 return false;
             }
-        }
-        /// <summary>
-        /// Examines the domain part of the email and normalizes it.
-        /// </summary>
-        private static string DomainMapper(Match match)
-        {
-            // Use IdnMapping class to convert Unicode domain names.
-            IdnMapping idn = new IdnMapping();
-
-            // Pull out and process domain name (throws ArgumentException on invalid)
-            string domainName = idn.GetAscii(match.Groups[2].Value);
-
-            return match.Groups[1].Value + domainName;
         }
     }
 }

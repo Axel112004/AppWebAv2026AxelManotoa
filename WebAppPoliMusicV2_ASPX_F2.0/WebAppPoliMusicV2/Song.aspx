@@ -46,6 +46,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="pm-sidebar__credit">Axel Manotoa &middot; ISWD823</div>
             </div>
         </aside>
 

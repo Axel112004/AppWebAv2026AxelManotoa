@@ -14,6 +14,8 @@ namespace WebAppPoliMusicV2
             if (!Page.IsPostBack)
             {
 #if DEBUG
+                // Datos del estudiante: Axel Manotoa
+                // (aqui se reemplaza "nombre.apellidoestudiante" por los datos propios)
                 txtLogin.Text = "Axel.Manotoa";
                 txtPassword.Text = "12345678";
                 txtPassword.Attributes.Add("value", txtPassword.Text);
@@ -25,7 +27,7 @@ namespace WebAppPoliMusicV2
 
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
-            string login = txtLogin.Text.Trim();
+            string login = txtLogin.Text;
             string password = txtPassword.Text;
 
             if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
@@ -33,14 +35,8 @@ namespace WebAppPoliMusicV2
                 lblMessage.Text = "Please, write a login/password.";
                 return;
             }
-            string hashedPassword = Util.Hash.GeneratePasswordHash(password);
-            DataTable dtUser = new BLL.User(strConnString).AuthenticateUser(login, hashedPassword);
-            if (dtUser == null || dtUser.Rows.Count == 0)
-            {
-                // Compatibility with the rows seeded by BDD_PoliMusic.sql, whose
-                // PASSWORD column still keeps the plain text value.
-                dtUser = new BLL.User(strConnString).AuthenticateUser(login, password);
-            }
+            password = Util.Hash.GeneratePasswordHash(password);
+            DataTable dtUser = new BLL.User(strConnString).AuthenticateUser(login, password);
 
             if (dtUser != null && dtUser.Rows.Count > 0)
             {
@@ -55,11 +51,13 @@ namespace WebAppPoliMusicV2
                 {
                     Session[Util.Constants.USER] = user;
                     FormsAuthentication.RedirectFromLoginPage(login, true);
+                    //Response.Redirect("~/Default.aspx", true);
                 }
                 else if (user.UserType == Util.Constants.ID_USER_ADMIN)
                 {
                     Session[Util.Constants.USER] = user;
                     FormsAuthentication.RedirectFromLoginPage(login, true);
+                    Response.Redirect("~/DesktopAdmin.aspx?uid=" + user.ID, true);
                 }
                 else
                 {
@@ -72,6 +70,7 @@ namespace WebAppPoliMusicV2
                 lblMessage.Text = "Login/password incorrect, try again.";
                 return;
             }
+            //#endif
             lblMessage.Text = string.Empty;
         }
 
