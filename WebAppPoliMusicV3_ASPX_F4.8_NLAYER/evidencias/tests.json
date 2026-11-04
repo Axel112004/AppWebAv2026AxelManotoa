@@ -1,0 +1,98 @@
+{
+  "checks": [
+    {
+      "name": "Acceso anónimo redirige a Login",
+      "passed": true
+    },
+    {
+      "name": "Contraseña incorrecta rechazada",
+      "passed": true
+    },
+    {
+      "name": "Login válido abre Inicio",
+      "passed": true
+    },
+    {
+      "name": "Nombre del estudiante visible",
+      "passed": true
+    },
+    {
+      "name": "Song utiliza Site.Master",
+      "passed": true
+    },
+    {
+      "name": "GridView muestra cinco canciones",
+      "passed": true
+    },
+    {
+      "name": "Cuatro MP3 ausentes se indican honestamente",
+      "passed": true
+    },
+    {
+      "name": "jQuery Bootstrap Modernizr y ASP.NET AJAX cargan",
+      "passed": true
+    },
+    {
+      "name": "Audio MP3 se carga y reproduce",
+      "passed": true
+    },
+    {
+      "name": "Play incrementa el contador mediante AJAX",
+      "passed": true
+    },
+    {
+      "name": "Navegación móvil disponible",
+      "passed": true
+    },
+    {
+      "name": "La página móvil no desborda horizontalmente",
+      "passed": true
+    },
+    {
+      "name": "Logout vuelve a Login",
+      "passed": true
+    },
+    {
+      "name": "Sesión cerrada impide acceder al catálogo",
+      "passed": true
+    },
+    {
+      "name": "Registro público con Friendly URL",
+      "passed": true
+    },
+    {
+      "name": "Registro valida campos obligatorios",
+      "passed": true
+    },
+    {
+      "name": "Registro rechaza usuario duplicado",
+      "passed": true
+    },
+    {
+      "name": "Registro valida confirmación",
+      "passed": true
+    },
+    {
+      "name": "Registro guarda usuario con foto predeterminada",
+      "passed": true
+    },
+    {
+      "name": "El usuario registrado puede iniciar sesión",
+      "passed": true
+    },
+    {
+      "name": "Foto predeterminada del usuario registrado existe",
+      "passed": true
+    },
+    {
+      "name": "Sin errores JavaScript",
+      "passed": true
+    },
+    {
+      "name": "Sin respuestas HTTP de error",
+      "passed": true
+    }
+  ],
+  "errors": [],
+  "failures": []
+}

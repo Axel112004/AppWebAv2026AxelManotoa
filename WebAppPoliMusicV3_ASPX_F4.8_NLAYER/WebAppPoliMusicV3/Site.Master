@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="WebAppPoliMusicV3.SiteMaster" %>
+<%@ Import Namespace="System.Web.Optimization" %>
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%: Page.Title %> | PoliMusic - Axel.Manotoa</title>
+    <%: Styles.Render("~/Content/css") %>
+    <%: Scripts.Render("~/bundles/modernizr") %>
+    <%: Scripts.Render("~/bundles/polimusic") %>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body class="pm-body">
+<form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true" />
+    <aside class="pm-sidebar">
+        <a class="pm-brand" runat="server" href="~/">
+            <span class="pm-auth__logo">P</span>
+            <span class="pm-brand__text">Poli<span>Music</span></span>
+            <span class="pm-brand-owner">PoliMusic - Axel.Manotoa</span>
+        </a>
+        <nav class="pm-nav" aria-label="Navegación principal">
+            <div class="pm-nav__label">Tu biblioteca</div>
+            <a id="navHome" class="pm-nav__link" runat="server" href="~/"><span>&#8962;</span> Inicio</a>
+            <a id="navSongs" class="pm-nav__link" runat="server" href="~/Song"><span>&#9835;</span> Canciones</a>
+            <div class="pm-nav__label">Tu cuenta</div>
+            <a class="pm-nav__link" runat="server" href="~/Logout"><span>&#9099;</span> Cerrar sesión</a>
+        </nav>
+        <div class="pm-sidebar__foot">
+            <div class="pm-sidebar__who">
+                <asp:Image ID="imgAvatar" runat="server" CssClass="pm-avatar" AlternateText="Foto de usuario" />
+                <div><div class="pm-sidebar__name"><asp:Label ID="lblUserName" runat="server" /></div>
+                <div class="pm-sidebar__role"><asp:Label ID="lblUserRole" runat="server" /></div></div>
+            </div>
+            <div class="pm-sidebar__credit">Axel Manotoa &middot; ISWD823</div>
+        </div>
+    </aside>
+    <header class="pm-topbar">
+        <div><div class="pm-topbar__title"><%: Page.Title %></div>
+        <div class="pm-topbar__sub">Tu música, a un clic de distancia</div></div>
+        <nav class="pm-mobile-nav" aria-label="Navegación móvil">
+            <a runat="server" href="~/">Inicio</a><a runat="server" href="~/Song">Canciones</a><a runat="server" href="~/Logout">Salir</a>
+        </nav>
+        <span class="pm-welcome">Hola, <asp:Label ID="lblWelcome" runat="server" /></span>
+    </header>
+    <main class="pm-main"><asp:ContentPlaceHolder ID="MainContent" runat="server" /></main>
+    <footer class="pm-player">
+        <div class="pm-player__art">&#9835;</div>
+        <div class="pm-player__meta"><div class="pm-player__title" id="pmPlayerTitle">Tu próxima canción te espera</div>
+            <div class="pm-player__sub" id="pmPlayerSub">Elige una canción del catálogo</div></div>
+        <audio id="pmAudio" class="pm-player__audio" controls="controls" preload="none"></audio>
+    </footer>
+</form>
+<%: Scripts.Render("~/bundles/jquery", "~/bundles/bootstrap") %>
+</body>
+</html>
